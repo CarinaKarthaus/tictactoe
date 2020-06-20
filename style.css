@@ -46,10 +46,20 @@ body {
     margin-right: 16px;
     margin-left: 16px;
     margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 .player-inactive {
     opacity: 0.5;
+}
+
+.winner-announcement {
+    padding: 0.5em;
+    background: #f3cd42;
+    font-style: italic;
+    border-radius: 8px;
+    margin-right: 1em;
+    z-index: 3;
 }
 
 .table-area {
@@ -106,7 +116,7 @@ tr td:last-child {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .horizontal-line {
@@ -134,6 +144,7 @@ tr td:last-child {
     border-radius: 8px;
     position: absolute;
     bottom: 5%;
+    right: 10%;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     transition: all 225ms ease-in-out;

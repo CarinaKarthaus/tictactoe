@@ -14,7 +14,6 @@ function fillShape(id) {
             document.getElementById('player-2').classList.add('player-inactive');
             document.getElementById('player-1').classList.remove('player-inactive');
         }
-        
         fields[id] = currentShape;
         console.log(fields);
         draw();    
@@ -28,9 +27,19 @@ function restart(){
     currentShape = 'cross';
     document.getElementById('game-over').classList.add('d-none');
     document.getElementById('restart-btn').classList.add('d-none');
-    for (let i=1; i < 9; i++) {
-        document.getElementById('line-' + i).classList.add('d-none');
+    document.getElementById('winner-announcement').classList.add('d-none');
+    document.getElementById('player-1').classList.remove('d-none');
+    document.getElementById('player-2').classList.remove('d-none');
+    document.getElementById('player-2').classList.add('player-inactive');
+    for (let i=1; i < 4; i++) {
+        document.getElementById('line-' + i).style.transform = 'scaleX(0.0)';
     }
+    for (let i=4; i<7; i++) {
+        document.getElementById('line-' + i).style.transform = 'rotate(90deg) scaleX(0.0)';
+    }  
+    document.getElementById('line-7').style.transform = 'rotate(45deg) scaleX(0.0)';
+    document.getElementById('line-8').style.transform = 'rotate(-45deg) scaleX(0.0)';
+    
     for (let i=0; i < 9; i++) {
         document.getElementById('circle-' + i).classList.add('d-none');
         document.getElementById('cross-' + i).classList.add('d-none');
@@ -43,7 +52,6 @@ function draw() {
         if (fields[i] == 'circle') {
             document.getElementById('circle-' + i).classList.remove('d-none');
         }
-
         if (fields[i] == 'cross') {
             document.getElementById('cross-' + i).classList.remove('d-none');
         }
@@ -90,9 +98,20 @@ function checkForWin() {
         console.log('Gewonnen: ' + winner);
         gameOver = true;
 
+
         setTimeout(function() {
             document.getElementById('game-over').classList.remove('d-none');
             document.getElementById('restart-btn').classList.remove('d-none');
+            document.getElementById('winner-announcement').classList.remove('d-none');
+            
+            if (winner == 'circle'){
+                document.getElementById('player-2').classList.add('d-none');
+                document.getElementById('player-1').classList.remove('player-inactive');
+            };
+            if (winner == 'cross'){
+                document.getElementById('player-1').classList.add('d-none');
+                document.getElementById('player-2').classList.remove('player-inactive');
+            }
         }, 2000);
         }
 }
