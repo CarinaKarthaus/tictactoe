@@ -25,12 +25,13 @@ function fillShape(id) {
 function restart(){
     gameOver = false;
     fields = [];
-    document.getElementById('game-over').classList.remove('d-none');
-    document.getElementById('restart-btn').classList.remove('d-none');
-    for (let i=1; i < 8; i++) {
+    currentShape = 'cross';
+    document.getElementById('game-over').classList.add('d-none');
+    document.getElementById('restart-btn').classList.add('d-none');
+    for (let i=1; i < 9; i++) {
         document.getElementById('line-' + i).classList.add('d-none');
     }
-    for (let i=1; i < 9; i++) {
+    for (let i=0; i < 9; i++) {
         document.getElementById('circle-' + i).classList.add('d-none');
         document.getElementById('cross-' + i).classList.add('d-none');
     }
