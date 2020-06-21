@@ -57,8 +57,12 @@ body {
     padding: 0.5em;
     background: #f3cd42;
     font-style: italic;
+    font-size: 1.5em;
     border-radius: 8px;
+    margin: unset;
     margin-right: 1em;
+    display: flex;
+    align-items: center;
     z-index: 3;
 }
 
@@ -69,6 +73,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 6em;
 }
 
 table {
@@ -158,6 +163,7 @@ tr td:last-child {
     position: absolute;
     width: 100%;
     height: 60%;
+    top: 16em;
     z-index: 2;
     object-fit: scale-down;
     animation: zoomIn 225ms ease-in-out;
@@ -171,5 +177,29 @@ tr td:last-child {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@media (max-height: 700px) {
+
+    .body-content {
+        margin-top: 5.5em;
+    }
+    
+    .header {
+        font-size: 1.3em;
+        margin-bottom: 1em;
+    }
+
+    .player-panel {
+        margin-top: 0.5em;
+    }
+
+    .table-area {
+        margin-top: 2em;
+    }
+
+    .game-over {
+        top: 13em;
     }
 }
